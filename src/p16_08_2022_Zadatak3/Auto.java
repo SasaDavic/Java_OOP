@@ -11,6 +11,15 @@ public class Auto {
 	public int mesecRegistracije;
 	public int kubikaza;
 	
+	public String brRegistracije;
+	public boolean ukljucenaKlima;
+	
+	public int maxBrzina;
+	
+	public int kapacitetRezervoara;
+	public int trenutnoGoriva;
+	
+		
 	public void stampaj() {
 		System.out.println(this.imeVozaca);
 		System.out.println(this.marka + " - " + this.brojVrata + "-ro vrata");
@@ -20,8 +29,10 @@ public class Auto {
 	
 	public boolean jePrekoracio(int ogranicenje) {
 		if(this.trenutnaBrzinu > ogranicenje) {
+			
 			return true;
 		} else {
+			
 			return false;
 		}
 	}
@@ -40,7 +51,7 @@ public class Auto {
 	}
 	
 	public boolean isteklaRegistracija(int trenutniMesec) {
-		return (this.mesecRegistracije <= trenutniMesec) ? false : true;
+		return (this.mesecRegistracije < trenutniMesec) ? true : false;
 	}
 	
 	public double cenaRegistracija() {
@@ -51,5 +62,46 @@ public class Auto {
 		}
 	}
 	
+	public void dodajGas() {
+		this.trenutnaBrzinu += 10;
+		if (this.trenutnaBrzinu > this.maxBrzina) {
+			this.trenutnaBrzinu = this.maxBrzina;
+		}
+	}
+	
+	public void koci() {
+		this.trenutnaBrzinu -= 10;
+		if (this.trenutnaBrzinu < 0) {
+			this.trenutnaBrzinu = 0;
+		}
+	}
+	
+	public double potrosnja() {
+		double faktor = 1;
+		if (this.ukljucenaKlima == true) {
+			faktor = 1.2;
+		}
+		return (this.trenutnaBrzinu / 100.0 * this.potrosnjuNa100km) * faktor;
+	}
+	
+	public void stampajTablu() {
+		for (int i = 0; i < 100; i++) {
+			int x = this.trenutnaBrzinu * 100 / this.maxBrzina;
+			if (i < x) {
+				System.out.print("|");
+			} else {
+				System.out.print(".");
+			}
+		}
+		System.out.println(" " + this.trenutnaBrzinu + "/" + this.maxBrzina + "km/h");
+	}
+	
+	public int natociGorivo(int kolikoTocite) {
+		if (this.trenutnoGoriva + kolikoTocite <= this.kapacitetRezervoara) {
+			return 170 * kolikoTocite;
+		} else {
+			return (this.kapacitetRezervoara - this.trenutnoGoriva) * 170;
+		}
+	}
 
 }

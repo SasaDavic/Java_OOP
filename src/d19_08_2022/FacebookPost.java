@@ -6,13 +6,10 @@ public class FacebookPost {
 	private String text;
 	private int likes;
 	private int share;
-	
-	
- 
+		 
 	public FacebookPost() {
 	}
-	
-	
+		
 	public FacebookPost(String namePosted, String nameProfil, String text) {
 		this.namePosted = namePosted;
 		this.nameProfil = nameProfil;

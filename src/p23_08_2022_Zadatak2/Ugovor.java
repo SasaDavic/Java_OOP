@@ -71,9 +71,10 @@ public class Ugovor {
 	public void stampajUgovor() {
 		System.out.println("Dana " + this.datum + "god. sklopljen je ugovor izmedju ");
 		prodavac.stampaj(); System.out.print(" i "); kupac.stampaj();
-		System.out.println(" o kupovini nekretnine " + this.adresa + " po ceni od " + 
-		this.cenaNekretnine + 
-		" pri cemu je kupac u obavezi da agenciji isplati novcanu vrednost u iznosu od " + zaradaAgencije());
+		System.out.println(" o kupovini nekretnine " + this.adresa + " po ceni od " + this.cenaNekretnine);
+		System.out.println(" pri cemu je kupac u obavezi da agenciji isplati novcanu "
+				+ "vrednost u iznosu od " + zaradaAgencije()); 
+		
 	}
 	
 	

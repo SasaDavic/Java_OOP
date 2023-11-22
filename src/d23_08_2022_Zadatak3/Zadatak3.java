@@ -80,6 +80,20 @@ Grejac: jacina grejaca kW
 	Naravno u glavnom programu kreirati elektricni sporet i testirati funkcionalnosti 
 
 	 */
+		
+		Ringla gL = new Ringla("obicna", 1.2);
+		Ringla gD = new Ringla("ekspres", 2);
+		Ringla dL = new Ringla("Obicna", 1.25);
+		Ringla dD = new Ringla("ekspres", 2.2);
+		
+		for (int i = 0; i < 12; i++) {
+			gL.pojacajRinglu();
+			gD.pojacajRinglu();
+		}
+		ElektricniSporet beko = new ElektricniSporet("Beko", 5, 3, gL, gD, dL, dD);
+		beko.pojacaj(3);
+		beko.stampaj();
+		
 
 	}
 

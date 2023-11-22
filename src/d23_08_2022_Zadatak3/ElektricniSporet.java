@@ -9,6 +9,7 @@ public class ElektricniSporet {
 	private Ringla goreDesno;
 	private Ringla doleLevo;
 	private Ringla doleDesno;
+	
 	public ElektricniSporet(String marka, int brGodina, int maxUkljucenihRingli, Ringla goreLevo, Ringla goreDesno,
 			Ringla doleLevo, Ringla doleDesno) {
 		this.marka = marka;
@@ -64,65 +65,45 @@ public class ElektricniSporet {
 			brojac++;
 		}
 		if (brojac > this.maxUkljucenihRingli) {
-			if (pozicija == 1) {
-				this.goreDesno.iskljuciRinglu();
-				this.doleDesno.iskljuciRinglu();
-				this.doleLevo.iskljuciRinglu();
-			} else if (pozicija == 2) {
-				this.goreLevo.iskljuciRinglu();
-				this.doleDesno.iskljuciRinglu();
-				this.doleLevo.iskljuciRinglu();
-			} else if (pozicija == 2) {
-				this.goreDesno.iskljuciRinglu();
-				this.doleDesno.iskljuciRinglu();
-				this.goreLevo.iskljuciRinglu();
-			} else if (pozicija == 2) {
-				this.goreDesno.iskljuciRinglu();
-				this.goreLevo.iskljuciRinglu();
-				this.doleLevo.iskljuciRinglu();
+			for (int i = 1; i < 5; i++) {
+				if (i != pozicija) {
+					iskljuciRinglu(i);
+				}
 			}
 		}
 	}
 	
-/*
+	public void iskljuciRinglu(int pozicija) {
+		if (pozicija == 1) {
+			this.goreLevo.iskljuciRinglu();
+		} else if (pozicija == 2) {
+			this.goreDesno.iskljuciRinglu();
+		} else if (pozicija == 3) {
+			this.doleLevo.iskljuciRinglu();
+		} else if (pozicija == 4) {
+			this.doleDesno.iskljuciRinglu();
+		}
+	}
+	
+	public double ukupnaPotrosnja(double brSatiUkljucen) {
+		double a = this.doleDesno.potrosnjaEE(brSatiUkljucen);
+		double b = this.doleLevo.potrosnjaEE(brSatiUkljucen);
+		double c = this.goreDesno.potrosnjaEE(brSatiUkljucen);
+		double d = this.goreLevo.potrosnjaEE(brSatiUkljucen);
+		return a + b + c + d;
+	}
+	public void stampaj() {
+		System.out.println(this.marka + " - " + this.brGodina + "god.");
+		System.out.println("Ringle: ");
+		System.out.println("Gore Levo: ");
+		this.goreLevo.stampaj();
+		System.out.println("Gore desno: ");
+		this.goreDesno.stampaj();
+		System.out.println("Dole levo: ");
+		this.doleLevo.stampaj();
+		System.out.println("Dole desno: ");
+		this.doleDesno.stampaj();
+		
+	}
 
-metodu pojacaj kojoj se prosledjuje pozicija ringle
-pozicija 1 je ringla gore levo
-pozicija 2 je ringla gore desno
-pozicija 3 je ringla dole levo
-pozicija 4 je ringla dole desno
-Ako se prelazi maksimalan broj ukljucenih ringli u jednom trenutku, pogasite sve ringle sem one koja se pojacava u tom pozivu funkije 
-Za gasenje ringli iskoristite metodu koja je definisana ispod 👇
-metodu iskljuci ringlu kojoj se prosledjuje pozicija ringle
-pozicija 1 je ringla gore levo
-pozicija 2 je ringla gore desno
-pozicija 3 je ringla dole levo
-pozicija 4 je ringla dole desno
-metodu koja racuna i vraca ukupnu potrosnju za ceo elektricni sporet, tako sto sabira potrosnju za sve ringle (kao parametar se unosi vreme koliko vec ringle rade)
-metodu koja stampa podatke u formatu:
-marka - garancija u godinama
-Ringle:
-Gore levo:
-Ringla je ukljucena/iskljucena
-Tip ringle: tip ringle
-Jacina: jacina
-Grejac: jacina grejaca kW
-Gore desno:
-Ringla je ukljucena/iskljucena
-Tip ringle: tip ringle
-Jacina: jacina
-Grejac: jacina grejaca kW
-Dole levo:
-Ringla je ukljucena/iskljucena
-Tip ringle: tip ringle
-Jacina: jacina
-Grejac: jacina grejaca kW
-Dole desno:
-Ringla je ukljucena/iskljucena
-Tip ringle: tip ringle
-Jacina: jacina
-Grejac: jacina grejaca kW
-
-
- */
 }

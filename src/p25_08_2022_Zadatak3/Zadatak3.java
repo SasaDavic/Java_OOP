@@ -4,7 +4,7 @@ public class Zadatak3 {
 
 	public static void main(String[] args) {
 	/*
-Za potrebe google istorije potrebno je kreirati sledece klase.
+	 * Za potrebe google istorije potrebno je kreirati sledece klase.
 Klasu HistoryPage koja ima:
 naziv stranice
 link do stranice 
@@ -30,7 +30,27 @@ metoda obrisiSveKolacice - metoda brise kredencijale za sve stranice.
 metoda obrisiSveKolaciceZaSadnjihSatVremena-  brise kolacice za strnaice koje su ucitane u zadnjih sat vremena. Metoda kao parametar prima trenutno vreme (sat i minut)
 
 	 */
-
+//greska u tekstu - history page je home page!
+		
+		
+		History history = new History();
+		history.openPage("Google", "www.google.com", 15, 15);
+		history.openPage("Youtube", "www.youtube.com", 26, 15);
+		history.openPage("Wikipedia", "www.wiki.com", 56, 18);
+		history.openPage("Facebook", "www.facebook.com", 02, 19);
+		history.openPage("PMF", "www.pmf.edu.rs", 20, 20);
+		history.saveCredentials("Youtube", "mina", "0123");		
+		history.saveCredentials("PMF", "student", "3223");
+		history.viewHistory();
+		history.deleteAllCookies();
+		System.out.println("-----------------------");
+		history.viewHistory(); //ne brise kolacice u poslednjem satu
+		
+		history.deleteHistory();//??
+		System.out.println("-----------------------");
+		history.viewHistory(); 
+		
+		
 	}
 
 }

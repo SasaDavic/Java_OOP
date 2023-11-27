@@ -1,68 +1,86 @@
 package p25_08_2022_Zadatak3;
 
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
-
 public class HistoryPage {
-	private String nazivStranice;
+	
+	private String pageName;
 	private String link;
-	private LocalTime vreme = LocalTime.now (); // inicijalizujte atribut vreme sa trenutnim vremenom
-	private String username;
-	private String password;
+	private int min;
+	private int hour;
+	private String user;
+	private String pass;
 	
 	public HistoryPage() {
-		this.username = "sasa@sifra";
-		this.password = "sifra123";
-	}
-	public HistoryPage(String nazivStranice, String link, String username, String password) {
-		this.nazivStranice = nazivStranice;
-		this.link = link;
-		this.username = username;
-		this.password = password;
-		this.vreme = vreme.truncatedTo (ChronoUnit.MINUTES); // ovo je ispravno mesto za odbacivanje sekundi i milisekundi iz vremena
+		this.pageName = "";
+		this.link = "";
+		this.min = 0;
+		this.hour = 0;
+		this.user = null;
+		this.pass = null;
 		}
 
-	public String getNazivStranice() {
-		return nazivStranice;
-	}
+	public HistoryPage(String pageName, String link, int min, int hour) {
+		this.pageName = pageName;
+		this.link = link;
+		this.min = min;
+		this.hour = hour;
+		this.user = null;
+		this.pass = null;
+		}
 
-	public void setNazivStranice(String nazivStranice) {
-		this.nazivStranice = nazivStranice;
-	}
+	public String getPageName() {
+		return pageName;
+		}
+
+	public void setPageName(String pageName) {
+		this.pageName = pageName;
+		}
 
 	public String getLink() {
 		return link;
-	}
+		}
 
 	public void setLink(String link) {
 		this.link = link;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void sacuvajKredencijale(String user, String pass) {
-		this.password = pass;
-		this.username = user;
-	}
-
-	public void obrisiKolacice() {
-		this.username = null;
-		this.password = null;
-	}
-	
-	public void stampaj() {
-		System.out.print(this.vreme + " - " + this.nazivStranice +
-				"..." + this.link);
-		if(this.username != null && this.password != null) {
-			System.out.println("*");
 		}
-	}
+
+	public int getMin() {
+		return min;
+		}
+
+	public void setMin(int min) {
+		this.min = min;
+		}
+
+	public int getHour() {
+		return hour;
+		}
+
+	public void setHour(int hour) {
+		this.hour = hour;
+		}
+
+	public String getUser() {
+		return user;
+		}
+
+	public String getPass() {
+		return pass;
+		}
+	
+	public void saveCredentials(String user, String pass) {
+		this.pass = pass;
+		this.user = user;
+		}
+	public void deleteCookies() {
+	    this.user = null;
+	    this.pass = null;
+		}
+	public void print() {
+		System.out.print(this.hour + " - " + this.min + " - " + this.pageName + "..." + this.link);
+		if (this.pass != null && this.user != null) {
+			System.out.print(" *");
+		}
+		System.out.println();
 	}
 
-
+}

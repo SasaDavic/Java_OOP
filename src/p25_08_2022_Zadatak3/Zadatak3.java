@@ -41,12 +41,11 @@ metoda obrisiSveKolaciceZaSadnjihSatVremena-  brise kolacice za strnaice koje su
 		history.openPage("PMF", "www.pmf.edu.rs", 20, 20);
 		history.saveCredentials("Youtube", "mina", "0123");		
 		history.saveCredentials("PMF", "student", "3223");
-		history.viewHistory();
-		history.deleteAllCookies();
-		System.out.println("-----------------------");
+		
+		
 		history.viewHistory(); //ne brise kolacice u poslednjem satu
 		
-		history.deleteHistory();//??
+		history.deleteCookiesByHour(40, 20);
 		System.out.println("-----------------------");
 		history.viewHistory(); 
 		

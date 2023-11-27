@@ -28,9 +28,7 @@ public class History {
 		}
 	}
 	public void deleteHistory() {
-		for (int i = 0; i < historypage.size(); i++) {
-				historypage.remove(i);
-		}
+		historypage.clear();
 	}
 	public void saveCredentials(String nazivStranice, String user, String pass) {
 		for (int i = 0; i < historypage.size(); i++) {
@@ -51,18 +49,12 @@ public class History {
 	}
 	 public void deleteCookiesByHour(int currentHour, int currentMinute) {
 		    for (int i = 0; i < historypage.size(); i++) {
-		      if (historypage.get(i).getHour() == currentHour) {
-		    	  historypage.get(i).deleteCookies();
-		        }
-		      if (historypage.get(i).getHour() + 1 == currentHour && historypage.get(i).getMin() > currentMinute) {
+		      int x = historypage.get(i).getHour() * 60 + historypage.get(i).getMin();
+		      int y = currentHour * 60 + currentMinute;
+		      if (y - x <= 60) {
 		    	  historypage.get(i).deleteCookies();
 		      }
 		    }
 	 }
-/*
 
-metoda pogledajIstoriju - stampa sve posecene stranice
-metoda obrisiSveKolacice - metoda brise kredencijale za sve stranice.
-metoda obrisiSveKolaciceZaSadnjihSatVremena-  brise kolacice za strnaice koje su ucitane u zadnjih sat vremena. Metoda kao parametar prima trenutno vreme (sat i minut)
- */
 }

@@ -1,5 +1,7 @@
 package skocko;
 
+import java.util.ArrayList;
+
 public class SkockoGame {
 	private int brojOdigranihPokusaja;
 	private String polje1; //cuvaju trazenu kombinaciju
@@ -114,16 +116,28 @@ public class SkockoGame {
 	}
 	public int brojPogodakaAliNisuNaMestu() {
 		int brojac = 0;
-		if (!this.polje1.equals(odigrano1) && (this.polje1.equals(odigrano2) || 
-				this.polje1.equals(odigrano3) || this.polje1.equals(odigrano4))) {
-			brojac++;
-		}
-		if (!this.polje2.equals(odigrano2) && (this.polje2.equals(odigrano3) ||
-				this.polje2.equals(odigrano4))) {
-			brojac++;
-		}
-		if (!this.polje3.equals(odigrano3) && this.polje3.equals(odigrano4)) {
-			brojac++;
+		ArrayList<String> polje = new ArrayList<String>();
+		ArrayList<String> odigrano = new ArrayList<String>();
+		polje.add(polje1);
+		polje.add(polje2);
+		polje.add(polje3);
+		polje.add(polje4);
+		odigrano.add(odigrano1);
+		odigrano.add(odigrano2);
+		odigrano.add(odigrano3);
+		odigrano.add(odigrano4);
+		
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+				if (polje.get(j).equals(odigrano.get(j))) {
+					polje.set(j, " ");
+					odigrano.set(j, "");
+				}
+				if (polje.get(i).equals(odigrano.get(j)) && i != j && !odigrano.get(j).equals("")) {
+					brojac++;
+					odigrano.set(j, "");
+				}
+			}
 		}
 		return brojac;
 	}

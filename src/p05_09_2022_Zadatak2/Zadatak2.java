@@ -32,6 +32,12 @@ konstruktor sa parametrima
 	  u main funkciji, napraviti visa i master kartice i testirati funkcije
 
 	 */
+		VisaKartica visa = new VisaKartica(25000, "840-963258-12", 2025, 05, "Mile");
+		MasterKartica master = new MasterKartica(56000, "840-852147-63", 2030, 01);
+		visa.dodajSredstva(56);
+		visa.izvrsiTransakciju(6000);
+		visa.stampaj();
+		master.stampaj();
 
 	}
 

@@ -38,7 +38,8 @@ konstruktor sa parametrima
 		visa.izvrsiTransakciju(6000);
 		visa.stampaj();
 		master.stampaj();
-
+		
+		
 	}
 
 }

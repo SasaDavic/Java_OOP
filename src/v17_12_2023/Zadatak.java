@@ -17,15 +17,15 @@ Implementirajte sve potrebne metode za ove klase. Takođe, dodajte odgovarajuće
 kako biste osigurali da se knjiga ne može iznajmiti ako je već iznajmljena, da član ne može 
 iznajmiti više od 3 knjige odjednom, itd.
 	 */
-		Knjiga k1 = new Knjiga("Knjiga o Titu", "Dobrica Ćosić", 2023, true);
-		Knjiga k2 = new Knjiga("Daleko je sunce", "Dobrica Ćosić", 2023, true);
-		Knjiga k3 = new Knjiga("Vreme vlasti II", "Dobrica Ćosić", 2023, true);
-		Knjiga k4 = new Knjiga("Vreme vlasti I", "Dobrica Ćosić", 2023, true);
-		Knjiga k5 = new Knjiga("Deobe", "Dobrica Ćosić", 2023, true);
+		Knjiga k1 = new Knjiga("Knjiga o Titu", "Dobrica Ćosić", 2023, 0001);
+		Knjiga k2 = new Knjiga("Daleko je sunce", "Dobrica Ćosić", 2023, 0002);
+		Knjiga k3 = new Knjiga("Vreme vlasti II", "Dobrica Ćosić", 2023, 0003);
+		Knjiga k4 = new Knjiga("Vreme vlasti I", "Dobrica Ćosić", 2023, 0004);
+		Knjiga k5 = new Knjiga("Deobe", "Dobrica Ćosić", 2023, 0005);
 		
-		Clan c1 = new Clan("Nina", "Stankovic");
-		Clan c2 = new Clan("Ana", "Nikolic");
-		Clan c3 = new Clan("Neda", "Stankovic");
+		Clan c1 = new Clan("Nina", "Stankovic", 9001);
+		Clan c2 = new Clan("Ana", "Nikolic", 9002);
+		Clan c3 = new Clan("Neda", "Stankovic", 9003);
 		
 		Biblioteka b = new Biblioteka();
 		b.ubaciNovuKnjigu(k1);
@@ -38,15 +38,15 @@ iznajmiti više od 3 knjige odjednom, itd.
 		b.uclani(c2);
 		b.uclani(c3);
 		
-		b.iznajmiKnjigu("Nina", "Deobe");
-		b.iznajmiKnjigu("Nina", "Vreme vlasti I");
-		b.iznajmiKnjigu("Nina", "Daleko je sunce");
-		b.iznajmiKnjigu("Nina", "Knjiga o Titu");
+		b.iznajmiKnjigu(9001, "Deobe");
+		b.iznajmiKnjigu(9001, "Vreme vlasti I");
+		b.iznajmiKnjigu(9001, "Daleko je sunce");
+		b.iznajmiKnjigu(9001, "Knjiga o Titu");
 		
-		b.iznajmiKnjigu("Ana", "Deobe");
+		b.iznajmiKnjigu(9002, "Deobe");
 		
-		b.vratiKnjigu("Nina", "Vreme vlasti II");
-		b.vratiKnjigu("Ana", "Deobe");
+		b.vratiKnjigu(9001, "Vreme vlasti II");
+		b.vratiKnjigu(9002, "Deobe");
 		
 	}
 

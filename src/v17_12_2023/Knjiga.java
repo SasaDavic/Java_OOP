@@ -6,7 +6,9 @@ public class Knjiga {
 	private String autor;
 	private int godinaIzdanja;
 	private boolean dosupna;
+	private int sifraKnjige;
 	
+
 	public String getNaslov() {
 		return naslov;
 	}
@@ -39,12 +41,21 @@ public class Knjiga {
 		this.dosupna = dosupna;
 	}
 
-	public Knjiga(String naslov, String autor, int godinaIzdanja, boolean dosupna) {
+	public int getSifraKnjige() {
+		return sifraKnjige;
+	}
+
+	public void setSifraKnjige(int sifraKnjige) {
+		this.sifraKnjige = sifraKnjige;
+	}
+
+	public Knjiga(String naslov, String autor, int godinaIzdanja, int sifraKnjige) {
 		super();
 		this.naslov = naslov;
 		this.autor = autor;
 		this.godinaIzdanja = godinaIzdanja;
-		this.dosupna = dosupna;
+		this.dosupna = true;
+		this.sifraKnjige = sifraKnjige;
 	}
 
 	public Knjiga() {
@@ -52,13 +63,16 @@ public class Knjiga {
 	}
 	
 	public void stampajPodatke() {
+		System.out.println("------------------------------------------");
 		System.out.println(this.naslov + " - " + this.autor);
 		System.out.println("Godina izdanja: " + this.godinaIzdanja);
+		System.out.println("Sifra: " + this.sifraKnjige);
 		if (this.dosupna == true) {
 			System.out.println("Knjiga je dostupna!");
 		} else {
 			System.out.println("Knjiga je izdata!");
 		}
+		System.out.println("------------------------------------------");
 	}
 	
 }

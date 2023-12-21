@@ -57,7 +57,26 @@ U glavnom programu kreirati jednu Korpu i u nju dodati nekoliko Ambalaza razlici
 sve metode i ispisati ukupnu cenu sa popustom.
 
 	 */
+		Tetrapak t1 = new Tetrapak("789 456321 123", "Slag krem", 200, 180, true, 436);
+		Tetrapak t2 = new Tetrapak("741 852963 123", "Joya Soja Drink", 230, 210, true, 540);
+		Tetrapak t3 = new Tetrapak("963 123456 789", "Belo vino", 800, 680, false,750);
+		
+		StaklenaAmbalaza s1 = new StaklenaAmbalaza("555 123456 789", "Belo vino", 800, 750, 50, true, 800);
 
+		SuperKartica super1 = new SuperKartica(1234, "Mile Mitic", 250);
+		
+		Korpa k = new Korpa();
+
+		k.dodajAmbalazu(s1);
+		k.dodajAmbalazu(t1);
+		k.dodajAmbalazu(t2);
+		k.dodajAmbalazu(t3);
+		k.setKartica(super1);
+		k.izbaciAmbalazu("963 123456 789");
+		k.stampajKorpu();
+		
+		
+		
 	}
 
 }
